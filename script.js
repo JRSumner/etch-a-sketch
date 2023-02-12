@@ -57,12 +57,14 @@ btn.onclick = () => {
   numberOfSquares = prompt("Enter number of squares between 1 - 100.");
 
   if (numberOfSquares > 100) {
-    alert(`The maximum value is 100, you provided ${numberOfSquares}`);
+    alert(`The maximum value is 100, you provided '${numberOfSquares}'`);
     return;
   } else if (numberOfSquares < 1) {
     alert(
-      `You must provide a value greater than 0, you provided ${numberOfSquares}`
+      `You must provide a value greater than 0, you provided '${numberOfSquares}'`
     );
+  } else if (typeof numberOfSquares === "number") {
+    alert(`Please provide a valid number, you provided '${numberOfSquares}'`);
   }
 
   const gridSquare = document.querySelectorAll(".gridSquare");
