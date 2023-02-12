@@ -2,13 +2,27 @@ const container = document.querySelector("#container");
 container.style.display = "flex";
 container.style.justifyContent = "space-between";
 
-for (let i = 0; i < 16; i++) {
-  const horizontalGrid = document.createElement("div");
+createMultipleColumns(createSingleColumn, 16);
 
-  horizontalGrid.style.backgroundColor = "pink";
-  horizontalGrid.textContent = "x";
-  horizontalGrid.style.flexDirection = "row";
-  horizontalGrid.style.border = "5px";
-  horizontalGrid.style.borderColor = "black";
-  container.appendChild(horizontalGrid);
+function createSingleColumn() {
+  const verticalContainer = document.createElement("div");
+
+  for (let i = 0; i < 16; i++) {
+    const verticalGrid = document.createElement("div");
+
+    verticalGrid.style.backgroundColor = "pink";
+    verticalGrid.textContent = "x";
+    verticalGrid.style.flexDirection = "row";
+    verticalGrid.style.border = "5px";
+    verticalGrid.style.borderColor = "black";
+    verticalContainer.appendChild(verticalGrid);
+  }
+
+  container.appendChild(verticalContainer);
+}
+
+function createMultipleColumns(createSingleColumn, numOfColumns) {
+  for (let i = 0; i < numOfColumns; i++) {
+    createSingleColumn();
+  }
 }
