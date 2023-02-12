@@ -63,7 +63,7 @@ btn.onclick = () => {
     alert(
       `You must provide a value greater than 0, you provided '${numberOfSquares}'`
     );
-  } else if (typeof numberOfSquares === "number") {
+  } else if (typeof numberOfSquares != "number") {
     alert(`Please provide a valid number, you provided '${numberOfSquares}'`);
   }
 
